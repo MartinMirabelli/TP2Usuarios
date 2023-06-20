@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, DetailActivity::class.java)
         intent.putExtra(DetailActivity.EXTRA_URL, usr.picture.large)
         intent.putExtra(DetailActivity.EXTRA_NOMBRE, usr.name.first + " " +usr.name.last)
-        intent.putExtra(DetailActivity.EXTRA_DIREC, usr.location.street.name + " " + usr.location.street.number + " " + usr.location.city+","+usr.location.country)
+        intent.putExtra(DetailActivity.EXTRA_DIREC, usr.location.street.name + " " + usr.location.street.number + " " + usr.location.city+", "+usr.location.country)
         intent.putExtra(DetailActivity.EXTRA_EMAIL, usr.email)
         intent.putExtra(DetailActivity.EXTRA_PHONE, usr.phone)
 
