@@ -6,19 +6,22 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ar.edu.utn.frh.dup.android.tp2usuarios.adapter.UserPrueba
 import ar.edu.utn.frh.dup.android.tp2usuarios.adapter.UsuarioAdapter
+import ar.edu.utn.frh.dup.android.tp2usuarios.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding:ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         initRV()
     }
 
     private fun initRV(){
-        val recyclerView = findViewById<RecyclerView>(R.id.RV_ListaUsers)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = UsuarioAdapter(UserPrueba.datosHarcodeados)
+
+        binding.RVListaUsers.layoutManager = LinearLayoutManager(this)
+        binding.RVListaUsers.adapter = UsuarioAdapter(UserPrueba.datosHarcodeados)
 
     }
 }
