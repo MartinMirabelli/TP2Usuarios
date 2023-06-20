@@ -2,6 +2,8 @@ package ar.edu.utn.frh.dup.android.tp2usuarios.adapter
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import ar.edu.utn.frh.dup.android.tp2usuarios.DataClases.RandomUser
 import ar.edu.utn.frh.dup.android.tp2usuarios.DataClases.Result
@@ -19,8 +21,11 @@ class UsuarioViewHolder(view: View ) : ViewHolder(view){
         binding.TVnombre.text = usr.name.first+ " "+usr.name.last
         binding.TVciudad.text = usr.location.city
         binding.TVpais.text = usr.location.country
-
         Glide.with(binding.IVfoto.context).load(usr.picture.medium).into(binding.IVfoto)
+
+        itemView.setOnClickListener{
+            Toast.makeText(binding.TVnombre.context, usr.name.first , Toast.LENGTH_SHORT).show()
+        }
 
     }
 
