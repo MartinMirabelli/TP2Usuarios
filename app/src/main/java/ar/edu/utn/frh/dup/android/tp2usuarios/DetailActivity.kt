@@ -10,6 +10,9 @@ class DetailActivity : AppCompatActivity() {
     companion object{
         const val EXTRA_URL = "url"
         const val EXTRA_NOMBRE = "nombre"
+        const val EXTRA_DIREC = "direc"
+        const val EXTRA_EMAIL = "email"
+        const val EXTRA_PHONE = "phone"
     }
 
     private lateinit var binding:ActivityDetailBinding
@@ -22,10 +25,16 @@ class DetailActivity : AppCompatActivity() {
 
         val url = intent.getStringExtra(EXTRA_URL)
         val nombre = intent.getStringExtra(EXTRA_NOMBRE)
+        val direc =  intent.getStringExtra(EXTRA_DIREC)
+        val email =  intent.getStringExtra(EXTRA_EMAIL)
+        val phone = intent.getStringExtra(EXTRA_PHONE)
 
-        binding.TVnombreDetail.text = nombre
+
         Glide.with(binding.IVfotoDetail.context).load(url).into(binding.IVfotoDetail)
-
+        binding.TVnombreDetail.text = nombre
+        binding.TVDirecionDetail.text = direc
+        binding.TVEmailDetail.text = email
+        binding.TVPhoneDetail.text = phone
 
     }
 
