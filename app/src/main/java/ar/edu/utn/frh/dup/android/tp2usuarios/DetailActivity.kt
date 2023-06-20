@@ -1,5 +1,7 @@
 package ar.edu.utn.frh.dup.android.tp2usuarios
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import ar.edu.utn.frh.dup.android.tp2usuarios.databinding.ActivityDetailBinding
@@ -36,6 +38,21 @@ class DetailActivity : AppCompatActivity() {
         binding.TVEmailDetail.text = email
         binding.TVPhoneDetail.text = phone
 
-    }
+            binding.TVPhoneDetail.setOnClickListener {
+                if (phone != null) {
+                    marcarNumero(phone)
+                }
+            }
+        }
+
+        private fun marcarNumero(nroTelefono: String) {
+        val intent = Intent(Intent.ACTION_DIAL)
+
+        // Uri -> Universal Resource Identifier
+        // "tel" es el _esquema_ de la Uri
+
+        intent.data = Uri.parse("tel:$nroTelefono")
+        startActivity(intent)
+        }
 
 }

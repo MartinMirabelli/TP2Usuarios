@@ -11,7 +11,9 @@
         android:icon="@drawable/baseline_people_24"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TP2Usuarios"
+        android:theme="@style/Theme.Material3.Dark.NoActionBar"
+
+
         tools:targetApi="31">
         <activity
             android:name=".DetailActivity"
