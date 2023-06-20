@@ -1,15 +1,9 @@
 package ar.edu.utn.frh.dup.android.tp2usuarios.adapter
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
-import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import ar.edu.utn.frh.dup.android.tp2usuarios.DataClases.RandomUser
 import ar.edu.utn.frh.dup.android.tp2usuarios.DataClases.Result
 
-import ar.edu.utn.frh.dup.android.tp2usuarios.R
-import ar.edu.utn.frh.dup.android.tp2usuarios.Usuarios
 import ar.edu.utn.frh.dup.android.tp2usuarios.databinding.ItemContenidoBinding
 import com.bumptech.glide.Glide
 

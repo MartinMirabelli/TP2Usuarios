@@ -1,14 +1,13 @@
 package ar.edu.utn.frh.dup.android.tp2usuarios
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import ar.edu.utn.frh.dup.android.tp2usuarios.DataClases.Result
 import ar.edu.utn.frh.dup.android.tp2usuarios.adapter.UserPrueba
 import ar.edu.utn.frh.dup.android.tp2usuarios.adapter.UsuarioAdapter
 import ar.edu.utn.frh.dup.android.tp2usuarios.databinding.ActivityMainBinding
-import ar.edu.utn.frh.dup.android.tp2usuarios.DataClases.Result
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,17 +16,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         initRV()
     }
 
     private fun initRV(){
 
         binding.RVListaUsers.layoutManager = LinearLayoutManager(this)
-        binding.RVListaUsers.adapter = UsuarioAdapter(UserPrueba.datosHarcodeados , ::contenidoClickeado)
-
+        binding.RVListaUsers.adapter = UsuarioAdapter(UserPrueba.datosHarcodeados , ::itemClickeado)
     }
 
-    private fun contenidoClickeado(usr: Result){
+    private fun itemClickeado(usr: Result){
         val intent = Intent(this, DetailActivity::class.java)
         intent.putExtra(DetailActivity.EXTRA_URL, usr.picture.large)
         intent.putExtra(DetailActivity.EXTRA_NOMBRE, usr.name.first + " " +usr.name.last)
