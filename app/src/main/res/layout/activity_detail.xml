@@ -8,7 +8,7 @@
 
     <ImageView
         android:id="@+id/IVfotoDetail"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="300dp"
         tools:background="@color/black"
         app:layout_constraintTop_toTopOf="parent"
@@ -43,7 +43,9 @@
         app:layout_constraintTop_toBottomOf="@id/TVnombreDetail"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="15sp"
+        app:layout_constraintBottom_toTopOf="@id/TVEmailDetail"
+
+
         />
 
     <TextView
@@ -56,7 +58,8 @@
         app:layout_constraintTop_toBottomOf="@id/TVDirecionDetail"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="15sp"
+        app:layout_constraintBottom_toTopOf="@id/TVPhoneDetail"
+
         />
     <TextView
         android:id="@+id/TVPhoneDetail"
@@ -68,7 +71,8 @@
         app:layout_constraintTop_toBottomOf="@id/TVEmailDetail"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
         />
 
 
