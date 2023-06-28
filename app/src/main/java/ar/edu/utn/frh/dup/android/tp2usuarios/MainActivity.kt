@@ -2,9 +2,12 @@ package ar.edu.utn.frh.dup.android.tp2usuarios
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import ar.edu.utn.frh.dup.android.tp2usuarios.DataClases.RandomUser
 import ar.edu.utn.frh.dup.android.tp2usuarios.DataClases.Result
+import ar.edu.utn.frh.dup.android.tp2usuarios.Service.buscarUsuarios
 import ar.edu.utn.frh.dup.android.tp2usuarios.adapter.UserPrueba
 import ar.edu.utn.frh.dup.android.tp2usuarios.adapter.UsuarioAdapter
 import ar.edu.utn.frh.dup.android.tp2usuarios.databinding.ActivityMainBinding
@@ -24,7 +27,17 @@ class MainActivity : AppCompatActivity() {
     private fun initRV(){
 
         binding.RVListaUsers.layoutManager = LinearLayoutManager(this)
-        binding.RVListaUsers.adapter = UsuarioAdapter(UserPrueba.datosHarcodeados , ::itemClickeado)
+
+        // creo esta lambda que tiene los callback creado en buscarUsuarios
+        buscarUsuarios (
+            {datos -> binding.RVListaUsers.adapter = UsuarioAdapter(datos , ::itemClickeado) } ,
+            { t -> val errMsg = if (t is java.lang.Exception)
+                        "Hubo Exepcion"
+                    else
+                        "Hubo un Error"
+                Toast.makeText(this,errMsg,Toast.LENGTH_SHORT).show()
+            }
+        )
     }
 
     private fun itemClickeado(usr: Result){
