@@ -44,7 +44,7 @@ class DetailActivity : AppCompatActivity() {
         binding.TVEmailDetail.text = email
         binding.TVPhoneDetail.text = phone
 
-            binding.TVPhoneDetail.setOnClickListener {
+        binding.TVPhoneDetail.setOnClickListener {
                 if (phone != null) {
                     marcarNumero(phone)
                 }
@@ -91,6 +91,8 @@ class DetailActivity : AppCompatActivity() {
     private fun envia_mail(email:String) {
         val intent = Intent(Intent.ACTION_SENDTO)
         intent.data = Uri.parse("mailto:$email")
+       // intent.addCategory(Intent.CATEGORY_DEFAULT)
+     //   intent.type = "*/*"
 
         intent.putExtra(Intent.EXTRA_EMAIL,email) // Define la dirección de correo del destinatario
         intent.putExtra(Intent.EXTRA_SUBJECT, "Asunto del correo") // Opcional: Define el asunto del correo
