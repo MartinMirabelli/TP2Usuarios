@@ -2,6 +2,7 @@ package ar.edu.utn.frh.dup.android.tp2usuarios
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -30,14 +31,18 @@ class MainActivity : AppCompatActivity() {
 
         // creo esta lambda que tiene los callback creado en buscarUsuarios
         buscarUsuarios (
-            {datos -> binding.RVListaUsers.adapter = UsuarioAdapter(datos , ::itemClickeado) } ,
+            {datos -> binding.RVListaUsers.adapter = UsuarioAdapter(datos , ::itemClickeado)
+                binding.FLProgresBar.visibility = View.GONE
+            } ,
             { t -> val errMsg = if (t is java.lang.Exception)
-                        "Hubo Exepcion"
+                        "Hubo una Exepcion"
                     else
                         "Hubo un Error"
+                binding.FLProgresBar.visibility = View.GONE
                 Toast.makeText(this,errMsg,Toast.LENGTH_SHORT).show()
             }
         )
+
     }
 
     private fun itemClickeado(usr: Result){

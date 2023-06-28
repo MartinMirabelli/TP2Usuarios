@@ -1,6 +1,7 @@
 package ar.edu.utn.frh.dup.android.tp2usuarios.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ar.edu.utn.frh.dup.android.tp2usuarios.DataClases.RandomUser
