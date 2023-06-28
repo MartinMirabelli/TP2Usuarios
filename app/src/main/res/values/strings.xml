@@ -3,4 +3,7 @@
     <string name="no_map">No hay una app de mapas</string>
     <string name="no_mail_app">No se encontró una aplicación de correo compatible.</string>
 
+    <string name="exc_msg">Se produjo una Excepción al obtener los datos de la api.</string>
+    <string name="err_msg">Se produjo un Error al obtener los datos de la api.</string>
+
 </resources>

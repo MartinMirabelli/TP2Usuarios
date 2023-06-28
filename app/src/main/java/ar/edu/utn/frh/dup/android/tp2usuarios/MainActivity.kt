@@ -6,10 +6,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import ar.edu.utn.frh.dup.android.tp2usuarios.DataClases.RandomUser
 import ar.edu.utn.frh.dup.android.tp2usuarios.DataClases.Result
 import ar.edu.utn.frh.dup.android.tp2usuarios.Service.buscarUsuarios
-import ar.edu.utn.frh.dup.android.tp2usuarios.adapter.UserPrueba
 import ar.edu.utn.frh.dup.android.tp2usuarios.adapter.UsuarioAdapter
 import ar.edu.utn.frh.dup.android.tp2usuarios.databinding.ActivityMainBinding
 
@@ -30,19 +28,20 @@ class MainActivity : AppCompatActivity() {
         binding.RVListaUsers.layoutManager = LinearLayoutManager(this)
 
         // creo esta lambda que tiene los callback creado en buscarUsuarios
+
         buscarUsuarios (
             {datos -> binding.RVListaUsers.adapter = UsuarioAdapter(datos , ::itemClickeado)
-                binding.FLProgresBar.visibility = View.GONE
+                binding.FLProgresBar.visibility = View.GONE  // ya se pinto oculto la ProgressBar
             } ,
             { t -> val errMsg = if (t is java.lang.Exception)
-                        "Hubo una Exepcion"
+                        getString(R.string.exc_msg)
                     else
-                        "Hubo un Error"
+                        getString(R.string.err_msg)
+
                 binding.FLProgresBar.visibility = View.GONE
                 Toast.makeText(this,errMsg,Toast.LENGTH_SHORT).show()
             }
         )
-
     }
 
     private fun itemClickeado(usr: Result){
@@ -58,7 +57,5 @@ class MainActivity : AppCompatActivity() {
 
         startActivity(intent)
     }
-
-
 
 }
