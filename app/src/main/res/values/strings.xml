@@ -6,4 +6,7 @@
     <string name="exc_msg">Se produjo una Excepción al obtener los datos de la api.</string>
     <string name="err_msg">Se produjo un Error al obtener los datos de la api.</string>
 
+    <string name="null_body_msg">Se recibio un body nulo, pese a la respuesta exitosa</string>
+
+
 </resources>

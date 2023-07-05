@@ -1,9 +1,12 @@
 package ar.edu.utn.frh.dup.android.tp2usuarios
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import ar.edu.utn.frh.dup.android.tp2usuarios.databinding.ActivityDetailBinding
 import com.bumptech.glide.Glide
@@ -51,13 +54,14 @@ class DetailActivity : AppCompatActivity() {
             }
 
         binding.TVDirecionDetail.setOnClickListener {
-            verMapa(latitud,longitud)
+            if(latitud!=null && longitud != null){
+                    verMapa(latitud,longitud)
+            }
 
             }
         binding.TVEmailDetail.setOnClickListener {
             envia_mail(email!!)
-        }
-
+            }
         }
 
         private fun marcarNumero(nroTelefono: String) {
@@ -89,20 +93,15 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun envia_mail(email:String) {
-        val intent = Intent(Intent.ACTION_SENDTO)
-        intent.data = Uri.parse("mailto:$email")
-       // intent.addCategory(Intent.CATEGORY_DEFAULT)
-     //   intent.type = "*/*"
 
-        intent.putExtra(Intent.EXTRA_EMAIL,email) // Define la dirección de correo del destinatario
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Asunto del correo") // Opcional: Define el asunto del correo
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(email))  // espera un array de email
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Asunto del TP2 ")
+        intent.putExtra(Intent.EXTRA_TEXT, "Mensaje del TP2")
+        intent.type = "message/rfc822"
+        startActivity(Intent.createChooser(intent, "Select email"))
 
-        if (intent.resolveActivity(packageManager) != null) {
-            startActivity(intent)
-        } else {
-            // Si no se encuentra una aplicación de correo compatible, muestra un mensaje de error
-            Toast.makeText(this, getString(R.string.no_mail_app), Toast.LENGTH_SHORT).show()
-        }
     }
 
-}
+    }
+

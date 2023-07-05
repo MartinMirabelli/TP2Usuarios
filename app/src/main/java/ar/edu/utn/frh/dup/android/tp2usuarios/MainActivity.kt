@@ -11,7 +11,6 @@ import ar.edu.utn.frh.dup.android.tp2usuarios.Service.buscarUsuarios
 import ar.edu.utn.frh.dup.android.tp2usuarios.adapter.UsuarioAdapter
 import ar.edu.utn.frh.dup.android.tp2usuarios.databinding.ActivityMainBinding
 
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding:ActivityMainBinding
@@ -21,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initRV()
+
     }
 
     private fun initRV(){
@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity() {
         binding.RVListaUsers.layoutManager = LinearLayoutManager(this)
 
         // creo esta lambda que tiene los callback creado en buscarUsuarios
-
         buscarUsuarios (
             {datos -> binding.RVListaUsers.adapter = UsuarioAdapter(datos , ::itemClickeado)
                 binding.FLProgresBar.visibility = View.GONE  // ya se pinto oculto la ProgressBar
