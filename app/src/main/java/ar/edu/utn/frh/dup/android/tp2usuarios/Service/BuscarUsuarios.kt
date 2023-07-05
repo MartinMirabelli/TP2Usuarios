@@ -16,7 +16,7 @@ fun buscarUsuarios(
     callbackError: (Throwable) -> Unit
 ) {
 
-    val call : Call<RandomUser> = api.obtenerUsuarios("us,dk,fr,gb",50,"male")
+    val call : Call<RandomUser> = api.obtenerUsuarios("us,dk,fr,gb",50,"female")
 
     call.enqueue( object : Callback<RandomUser>{
         override fun onResponse(call: Call<RandomUser>, response: Response<RandomUser>) {

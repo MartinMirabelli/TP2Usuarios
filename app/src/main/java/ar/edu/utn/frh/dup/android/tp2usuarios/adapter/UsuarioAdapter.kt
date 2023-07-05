@@ -7,7 +7,9 @@ import ar.edu.utn.frh.dup.android.tp2usuarios.DataClases.RandomUser
 import ar.edu.utn.frh.dup.android.tp2usuarios.DataClases.Result
 import ar.edu.utn.frh.dup.android.tp2usuarios.R
 
-class UsuarioAdapter(private val listaUsuarios : RandomUser , private val itemClikeado: (Result) -> Unit ) : RecyclerView.Adapter<UsuarioViewHolder>() {
+class UsuarioAdapter(private val listaUsuarios : RandomUser ,
+                     private val itemClikeado: (Result) -> Unit )
+    : RecyclerView.Adapter<UsuarioViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsuarioViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
