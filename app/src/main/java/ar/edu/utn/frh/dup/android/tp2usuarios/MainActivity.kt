@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.RVListaUsers.layoutManager = LinearLayoutManager(this)
 
-        // creo esta lambda que tiene los callback creado en buscarUsuarios
+        // creo esta lambda que tiene los callback creados en buscarUsuarios
         buscarUsuarios (
             {datos -> binding.RVListaUsers.adapter = UsuarioAdapter(datos , ::itemClickeado)
                 binding.FLProgresBar.visibility = View.GONE  // ya se pinto oculto la ProgressBar
@@ -50,7 +50,6 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra(DetailActivity.EXTRA_DIREC, usr.location.street.name + " " + usr.location.street.number + " " + usr.location.city+", "+usr.location.country)
         intent.putExtra(DetailActivity.EXTRA_EMAIL_APP, usr.email)
         intent.putExtra(DetailActivity.EXTRA_PHONE, usr.phone)
-
         intent.putExtra(DetailActivity.EXTRA_LATI, usr.location.coordinates.latitude)
         intent.putExtra(DetailActivity.EXTRA_LONGI, usr.location.coordinates.longitude)
 
